@@ -6,10 +6,10 @@ Challenge for the bootcamp [Rocketseat](https://rocketseat.com.br/).
 Building the web application for Barber Shop.
 
 ## 🕹Demo
-Coming ...
+![](webrazor.gif)
 
 ## 📺 What I learned
-React | TypeScript ...
+React | TypeScript
 
 ## Instructions
 
