@@ -1,5 +1,4 @@
 import React, { createContext, useCallback, useState, useContext } from 'react';
-import { UseTransitionProps } from 'react-spring';
 import api from '../services/api';
 
 interface User {
@@ -32,6 +31,7 @@ export const AuthProvider: React.FC = ({ children }) => {
     const user = localStorage.getItem('@RazorMustache:user');
 
     if (token && user) {
+      api.defaults.headers.authorization = `Bearer ${token}`;
       return { token, user: JSON.parse(user) };
     }
 
@@ -48,6 +48,8 @@ export const AuthProvider: React.FC = ({ children }) => {
 
     localStorage.setItem('@RazorMustache:token', token);
     localStorage.setItem('@RazorMustache:user', JSON.stringify(user));
+
+    api.defaults.headers.authorization = `Bearer ${token}`;
 
     setData({ token, user });
   }, []);
